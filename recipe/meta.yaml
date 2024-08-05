@@ -1,5 +1,5 @@
 {% set name = "xaitk-jatic" %}
-{% set version = "0.1.1" %}
+{% set version = "0.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/xaitk_jatic-{{ version }}.tar.gz
-  sha256: 3b27d8f64e2852c8edb8f4ab41b2f0d98bf36c75c09b52d4bda6c5a3cd10ca82
+  sha256: 565b5fd79ae03268c396988694dff7ab4f92dd74accb6606548db809b112b206
 
 build:
   skip: true  # [win]
+  entry_points:
+    - sal-on-coco-dets = xaitk_jatic.utils.bin.sal_on_coco_dets:sal_on_coco_dets
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
 
@@ -22,13 +24,19 @@ requirements:
   run:
     - python
     - xaitk-saliency >=0.8.2
-    - maite <0.6.0,>=0.5.0
+    - maite >=0.6.0
     - setuptools >=65.6.3
     - scipy <1.11.1  # [py>=38 and py<39]
     - scipy >=1.10  # [py>=39]
     - numpy <1.25,>=1.22  # [py>=38 and py<39]
     - numpy <1.26,>=1.22  # [py>=39 and py<312]
     - numpy <2.0,>=1.26  # [py>=312]
+  run_constrained:
+    - kwcoco >=0.2.18
+    - matplotlib >=3.4.1
+    - transformers ~=4.42.3
+    - timm ~=1.0.7
+    - torchvision >=0.10.0
 
 test:
   imports:
