@@ -1,5 +1,5 @@
 {% set name = "xaitk-jatic" %}
-{% set version = "0.2.0" %}
+{% set version = "0.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/xaitk_jatic-{{ version }}.tar.gz
-  sha256: 565b5fd79ae03268c396988694dff7ab4f92dd74accb6606548db809b112b206
+  sha256: 62f69f3321321a40f93b5cd10e429d956e6e71e42b90f7bcb4334e4ab480b7d2
 
 build:
   skip: true  # [win]
@@ -23,14 +23,11 @@ requirements:
     - poetry-core
   run:
     - python
-    - xaitk-saliency >=0.8.2
+    - xaitk-saliency >=0.8.3
     - maite >=0.6.0
     - setuptools >=65.6.3
-    - scipy <1.11.1  # [py>=38 and py<39]
-    - scipy >=1.10  # [py>=39]
-    - numpy <1.25,>=1.22  # [py>=38 and py<39]
-    - numpy <1.26,>=1.22  # [py>=39 and py<312]
-    - numpy <2.0,>=1.26  # [py>=312]
+    - scipy >=1.10
+    - numpy >=1.22,<2.0
   run_constrained:
     - kwcoco >=0.2.18
     - matplotlib >=3.4.1
