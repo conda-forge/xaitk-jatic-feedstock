@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/xaitk_jatic-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/xaitk_jatic-{{ version }}.tar.gz
   sha256: 7a2d44320a7e944de51b517be80970049e12566d3525bffdee46541ddb89909b
 
 build:
