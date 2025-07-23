@@ -1,5 +1,5 @@
 {% set name = "xaitk-jatic" %}
-{% set version = "0.6.0" %}
+{% set version = "0.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/xaitk_jatic-{{ version }}.tar.gz
-  sha256: 9f145f310baa90d78eba4d4bfe47e02ee34ddfa53b2ebf4c494dd9b44c53e7c6
+  sha256: 98929aaa8932b3bf10118f820394abe31dd885965845f5d38d2896fb162cb766
 
 build:
   skip: true  # [win]
