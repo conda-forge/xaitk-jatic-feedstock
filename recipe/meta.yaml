@@ -1,5 +1,5 @@
 {% set name = "xaitk-jatic" %}
-{% set version = "0.7.0" %}
+{% set version = "0.8.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,9 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/xaitk_jatic-{{ version }}.tar.gz
-  sha256: 98929aaa8932b3bf10118f820394abe31dd885965845f5d38d2896fb162cb766
+  sha256: efaae29fd0e4a5e626d0bdc6590da1e05de5a77e557699a1fcae1577841ed521
 
 build:
-  skip: true  # [win]
   entry_points:
     - sal-on-coco-dets = xaitk_jatic.utils.bin.sal_on_coco_dets:sal_on_coco_dets
   script: {{ PYTHON }} -m pip install . -vv
@@ -23,11 +22,12 @@ requirements:
     - poetry-core
   run:
     - python
-    - xaitk-saliency >=0.9.2
-    - maite ~=0.8.1
+    - xaitk-saliency >=0.14.1
+    - maite ~=0.8.2
     - setuptools >=78.1.1
     - scipy >=1.10
-    - numpy >=1.22,<2.0
+    - numpy ~=1.25  # [py<312]
+    - numpy >=2.1  # [py>312]
   run_constrained:
     - kwcoco >=0.2.18
     - matplotlib >=3.4.1
