@@ -1,5 +1,5 @@
 {% set name = "xaitk-jatic" %}
-{% set version = "0.8.0" %}
+{% set version = "0.8.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/xaitk_jatic-{{ version }}.tar.gz
-  sha256: efaae29fd0e4a5e626d0bdc6590da1e05de5a77e557699a1fcae1577841ed521
+  sha256: 3bfe5408383331cf84f52df23f50849db42e8aaeaaf73f18fe8506d406119056
 
 build:
   entry_points:
     - sal-on-coco-dets = xaitk_jatic.utils.bin.sal_on_coco_dets:sal_on_coco_dets
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -23,7 +23,7 @@ requirements:
   run:
     - python
     - xaitk-saliency >=0.14.1
-    - maite ~=0.8.2
+    - maite ~=0.9.2
     - setuptools >=78.1.1
     - scipy >=1.10
     - numpy ~=1.25  # [py<312]
